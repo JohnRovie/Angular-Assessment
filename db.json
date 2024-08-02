@@ -1,0 +1,16 @@
+{
+    "contacts-information": [
+      { "id": "1",
+       "name": "Jay Contreras",
+       "contact": "0917-123-4567",
+       "email": "kamikazeegod@gmail.com" },
+      { "id": "2",
+       "name": "Jason Dimaguiba",
+       "contact": "0929-321-5546",
+       "email": "jasondmgb@gmail.com" },
+      { "id": "3",
+       "name": "Angel Marie",
+       "contact": "0932-222-4452",
+       "email": "angelm@gmail.com" }
+    ]
+  }

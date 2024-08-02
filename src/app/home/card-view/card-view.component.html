@@ -1,0 +1,27 @@
+<div class="grid grid-rows-3 grid-flow-col gap-4">
+    @for (contacts of displayContacts(); track contacts.id) {
+    <ul class="border border-solid border-stone-700 rounded w-96 p-2">
+
+        <li class="font-bold flex flex-row justify-between">
+            {{contacts.name}}
+            <div class="flex">
+                <button class="">
+                    <span class="material-symbols-outlined">
+                        edit
+                    </span>
+                </button>
+
+                <button>
+                    <span class="material-symbols-outlined">
+                        delete
+                    </span>
+                </button>
+
+            </div>
+        </li>
+        <li> {{contacts.email}} </li>
+        <li> {{contacts.contact}} </li>
+    </ul>
+    }
+
+</div>

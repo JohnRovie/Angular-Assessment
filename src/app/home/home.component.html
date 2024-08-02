@@ -1,0 +1,30 @@
+<div class="p-12 ml-20 mr-20">
+    <div class="flex flex-col">
+        <p class="font-bold mb-5 text-xl">Contacts Information</p>
+        <div class="flex flex-row justify-between">
+            <p class="mb-5">
+                Your list of contacts appear here. To add new contact. click on the Add
+                New Contact button
+            </p>
+            <button class="p-2.5 text-xs font-bold text-white rounded-full bg-indigo-400">
+                Add New Contact
+            </button>
+        </div>
+    </div>
+    <div class="mb-5 mt-5 flex align-end justify-end">
+        <button class="mr-10" (click)="isCard()" [disabled]="isCardDisabled"> <span class="material-symbols-outlined">
+                grid_view
+            </span></button>
+        <button (click)="isTable()" [disabled]="isTableDisabled"><span class="material-symbols-outlined">
+                menu
+            </span></button>
+    </div>
+    <div>
+        @if(card === true && table === false) {
+        <app-card-view></app-card-view>
+        }
+        @if(table === true && card === false){
+        <app-table-view></app-table-view>
+        }
+    </div>
+</div>

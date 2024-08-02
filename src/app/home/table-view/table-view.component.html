@@ -1,0 +1,34 @@
+<div class="flex align-center justify-center">
+    <table class="table-auto border border-slate-500">
+        <thead>
+            <tr class="bg-blue-950">
+                <th class="border border-slate-600 text-white px-16 py-2">Name</th>
+                <th class="border border-slate-600 text-white px-16 py-2">Contact Number</th>
+                <th class="border border-slate-600 text-white px-16 py-2">Email Address</th>
+                <th class="border border-slate-600 text-white px-16 py-2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (contacts of displayContacts(); track contacts.id) {
+            <tr>
+                <td class="border border-slate-600 px-16 py-2">{{ contacts.name }}</td>
+                <td class="border border-slate-600 px-16 py-2">{{ contacts.contact }}</td>
+                <td class="border border-slate-600 px-16 py-2">{{ contacts.email }}</td>
+                <td class="border border-slate-600 px-16 py-2">
+                    <button>
+                        <span class="material-symbols-outlined">
+                            edit
+                        </span>
+                    </button>
+
+                    <button>
+                        <span class="material-symbols-outlined">
+                            delete
+                        </span>
+                    </button>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
