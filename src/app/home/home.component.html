@@ -6,10 +6,15 @@
                 Your list of contacts appear here. To add new contact. click on the Add
                 New Contact button
             </p>
-            <button class="p-2.5 text-xs font-bold text-white rounded-full bg-indigo-400">
+            <button class="p-2.5 text-xs font-bold text-white rounded-full bg-indigo-400" (click)="toggleModal()">
                 Add New Contact
             </button>
         </div>
+    </div>
+    <div class="modal-container z-0">
+        @if(modalView) {
+        <app-modal (close)="closeModal()"></app-modal>
+        }
     </div>
     <div class="mb-5 mt-5 flex align-end justify-end">
         <button class="mr-10" (click)="isCard()" [disabled]="isCardDisabled"> <span class="material-symbols-outlined">
@@ -19,12 +24,14 @@
                 menu
             </span></button>
     </div>
-    <div>
+    <div class="viewOptions">
         @if(card === true && table === false) {
-        <app-card-view></app-card-view>
+        <app-card-view [contact]="contact"></app-card-view>
         }
         @if(table === true && card === false){
         <app-table-view></app-table-view>
         }
     </div>
+
+
 </div>

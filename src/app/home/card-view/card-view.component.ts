@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, Input, signal } from '@angular/core';
 import { Contacts } from '../../shared/contact-list.model';
 import { ContactListService } from '../../shared/contact-list.service';
 
@@ -11,6 +11,7 @@ import { ContactListService } from '../../shared/contact-list.service';
 })
 export class CardViewComponent {
   displayContacts = signal<Contacts[] | undefined>(undefined);
+  @Input({ required: true }) contact!: Contacts;
 
   constructor(private contactList: ContactListService) {}
 
@@ -21,5 +22,8 @@ export class CardViewComponent {
         console.log(resultData);
       },
     });
+  }
+  removeContact() {
+    return this.contactList.removeContact(this.contact.id);
   }
 }
