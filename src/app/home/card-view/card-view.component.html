@@ -1,9 +1,11 @@
 <div class="grid grid-rows-3 grid-flow-col gap-4">
-    @for (contacts of displayContacts(); track contacts.id) {
+    @for (contacts of contactData; track contacts.id) {
     <ul class="border border-solid border-stone-700 rounded w-96 p-2">
 
         <li class="font-bold flex flex-row justify-between">
-            {{contacts.name}}
+            <p routerLink="/information-view/{{contacts.id}}">
+                {{contacts.name}}
+            </p>
             <div class="flex">
                 <button class="">
                     <span class="material-symbols-outlined">

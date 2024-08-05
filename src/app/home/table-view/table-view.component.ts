@@ -1,27 +1,26 @@
 import { Component, signal } from '@angular/core';
 import { Contacts } from '../../shared/contact-list.model';
 import { ContactListService } from '../../shared/contact-list.service';
-import { HttpClient } from '@angular/common/http';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-table-view',
   standalone: true,
-  imports: [],
+  imports: [RouterLink, RouterLinkActive, RouterOutlet],
   templateUrl: './table-view.component.html',
-  styleUrl: './table-view.component.css'
+  styleUrl: './table-view.component.css',
 })
 export class TableViewComponent {
-  displayContacts = signal<Contacts[] | undefined>(undefined);
+  contactData: any;
 
-  constructor(private contactList: ContactListService){}
-
+  constructor(private contactList: ContactListService) {}
 
   ngOnInit() {
-    return this.contactList.getContacts().subscribe({
-      next: (resultData) => {
-        this.displayContacts.set(resultData)
-        console.log(resultData)
-      }
-    })
+    this.getData();
+  }
+  getData() {
+    this.contactList.getContacts().subscribe((res) => {
+      this.contactData = res;
+    });
   }
 }

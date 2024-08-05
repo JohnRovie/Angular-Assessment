@@ -4,11 +4,19 @@ import { CardViewComponent } from './card-view/card-view.component';
 import { ModalComponent } from './modal/modal.component';
 import { ContactListService } from '../shared/contact-list.service';
 import { Contacts } from '../shared/contact-list.model';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [TableViewComponent, CardViewComponent, ModalComponent],
+  imports: [
+    TableViewComponent,
+    CardViewComponent,
+    ModalComponent,
+    RouterLink,
+    RouterLinkActive,
+    RouterOutlet,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })

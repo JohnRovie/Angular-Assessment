@@ -9,10 +9,14 @@
             </tr>
         </thead>
         <tbody>
-            @for (contacts of displayContacts(); track contacts.id) {
+            @for (contacts of contactData; track contacts.id) {
             <tr>
-                <td class="border border-slate-600 px-16 py-2">{{ contacts.name }}</td>
-                <td class="border border-slate-600 px-16 py-2">{{ contacts.contact }}</td>
+                <td class="border border-slate-600 px-10 py-2 underline">
+                    <a routerLink="/information-view/{{contacts.id}}">
+                        {{ contacts.name }}
+                    </a>
+                </td>
+                <td class="border border-slate-600 px-10 py-2">{{ contacts.contact }}</td>
                 <td class="border border-slate-600 px-16 py-2">{{ contacts.email }}</td>
                 <td class="border border-slate-600 px-16 py-2">
                     <button>

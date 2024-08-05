@@ -1,0 +1,25 @@
+<h1>Customer Information</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (contacts of contactData; track contacts.id) {
+        <tr>
+            @if(contacts.id ){
+            <td>{{contacts.name}}</td>
+            <td>{{contacts.email}}</td>
+            <td>{{contacts.contact}}
+            </td>
+            }
+        </tr>
+        }
+    </tbody>
+</table>
+<a routerLink="/">
+    Back
+</a>
