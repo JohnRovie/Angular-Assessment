@@ -12,5 +12,5 @@ export const routes: Routes = [
   { path: 'table-view', component: TableViewComponent },
   { path: '404', component: PagenotfoundComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', component: PagenotfoundComponent },
+  { path: '**', redirectTo: '/404', pathMatch: 'full' },
 ];

@@ -5,6 +5,7 @@ export interface Contacts {
   email: string;
 }
 export interface NewContact {
+  id: String;
   name: string;
   contact: string;
   email: string;

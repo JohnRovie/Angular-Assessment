@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { ContactListService } from '../../shared/contact-list.service';
 
 @Component({
@@ -11,6 +11,7 @@ import { ContactListService } from '../../shared/contact-list.service';
 })
 export class ModalComponent {
   @Output() close = new EventEmitter<void>();
+  @Output() success = new EventEmitter<void>();
   enteredName = '';
   enteredContact = '';
   enteredEmail = '';
@@ -23,23 +24,12 @@ export class ModalComponent {
   onClose() {
     this.close.emit();
   }
+  isSuccess() {
+    this.success.emit();
+  }
 
-  onSubmit() {
-    if (this.enteredName.length === 0) {
-      alert('dont leave Name blank');
-      return;
-    }
-    // else if (
-    //   this.enteredContact.length < 11 ||
-    //   this.enteredContact.length > 11
-    // ) {
-    //   alert('Contact number must be 11 digit');
-    //   return;
-    // }
-    else if (this.enteredEmail.length === 0) {
-      alert('dont leave Email blank');
-      return;
-    } else {
+  onSubmit(formData: NgForm) {
+    {
       this.contactService
         .postContacts({
           name: this.enteredName,
@@ -50,12 +40,12 @@ export class ModalComponent {
           console.log(res);
           this.contactService.getContacts();
         });
-
-      alert('Successfully added a new contact!');
-      this.getData();
       this.close.emit();
+      this.success.emit();
     }
+    this.getData();
   }
+
   getData() {
     this.contactService.getContacts().subscribe((res) => {
       this.contactData = res;

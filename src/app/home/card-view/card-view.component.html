@@ -7,13 +7,13 @@
                 {{contacts.name}}
             </p>
             <div class="flex">
-                <button class="">
+                <button class="" (click)="updateContact(contacts.id)">
                     <span class="material-symbols-outlined">
                         edit
                     </span>
                 </button>
 
-                <button (click)="removeContact()">
+                <button (click)="removeContact(contacts)">
                     <span class="material-symbols-outlined">
                         delete
                     </span>

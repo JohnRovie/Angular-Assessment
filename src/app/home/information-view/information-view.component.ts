@@ -1,7 +1,13 @@
-import { Component, Input } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Component, Input, signal } from '@angular/core';
+import {
+  ActivatedRoute,
+  RouterLink,
+  RouterLinkActive,
+  RouterOutlet,
+} from '@angular/router';
 import { ContactListService } from '../../shared/contact-list.service';
 import { Contacts } from '../../shared/contact-list.model';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-information-view',
@@ -13,22 +19,23 @@ import { Contacts } from '../../shared/contact-list.model';
 export class InformationViewComponent {
   contactData: any;
   @Input({ required: true }) contact!: Contacts;
+  cont: any;
 
-  constructor(private contactList: ContactListService) {}
+  constructor(
+    private contactList: ContactListService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
+    this.cont = this.route.snapshot.paramMap.get('id');
     this.getData();
-    this.getId;
-    console.log(this.contact.id);
   }
 
   getData() {
-    this.contactList.getContacts().subscribe((res) => {
-      this.contactData = res;
-      console.log(res);
+    this.contactList.getContacts().subscribe({
+      next: (res: Contacts[]) => {
+        return (this.contactData = res);
+      },
     });
-  }
-  getId() {
-    this.contactList.getContactId(this.contact.id);
   }
 }

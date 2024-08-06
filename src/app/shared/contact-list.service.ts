@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable, signal } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Contacts, NewContact } from './contact-list.model';
 import { map } from 'rxjs';
 
@@ -28,26 +28,50 @@ export class ContactListService {
   ];
 
   getContacts() {
-    return this.httpClient.get<Contacts[]>(
-      'http://localhost:3000/contacts-information'
-    );
+    return this.httpClient
+      .get<Contacts[]>('http://localhost:3000/contacts-information')
+      .pipe(
+        map((res: any) => {
+          return res;
+        })
+      );
   }
   postContacts(data: any) {
-    return this.httpClient.post<any>(
-      'http://localhost:3000/contacts-information',
-      data
-    );
+    return this.httpClient
+      .post<any>('http://localhost:3000/contacts-information', data)
+      .pipe(
+        map((res: any) => {
+          return res;
+        })
+      );
+  }
+  updateContacts(data: any, id: any) {
+    return this.httpClient
+      .put<any>('http://localhost:3000/contacts-information/' + id, data)
+      .pipe(
+        map((res: any) => {
+          return res;
+        })
+      );
   }
   getContactId(id: string) {
-    this.contacts = this.contacts = this.contacts.filter(
-      (contact) => contact.id === id
-    );
+    return this.httpClient
+      .get<Contacts[]>('http://localhost:3000/contacts-information/' + id)
+      .pipe(
+        map((res: any) => {
+          return res;
+        })
+      );
   }
 
   removeContact(id: string) {
-    return this.httpClient.delete<any>(
-      'http://localhost:3000/contacts-information/' + id
-    );
+    return this.httpClient
+      .delete<any>('http://localhost:3000/contacts-information/' + id)
+      .pipe(
+        map((res: any) => {
+          return res;
+        })
+      );
   }
 
   addContact(contactData: NewContact) {

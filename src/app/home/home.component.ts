@@ -5,6 +5,7 @@ import { ModalComponent } from './modal/modal.component';
 import { ContactListService } from '../shared/contact-list.service';
 import { Contacts } from '../shared/contact-list.model';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { AlertComponent } from './alert/alert.component';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
     RouterLink,
     RouterLinkActive,
     RouterOutlet,
+    AlertComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
@@ -27,8 +29,14 @@ export class HomeComponent {
   isTableDisabled: boolean = false;
   modalView: boolean = false;
   contact!: Contacts;
+  isSuccess: boolean = false;
+  contactData: any;
 
   constructor(private contactList: ContactListService) {}
+
+  ngOnInit() {
+    this.getData();
+  }
 
   isCard() {
     this.card = true;
@@ -47,5 +55,16 @@ export class HomeComponent {
   }
   closeModal() {
     this.modalView = false;
+  }
+  showSuccess() {
+    this.isSuccess = true;
+  }
+
+  getData() {
+    this.contactList.getContacts().subscribe({
+      next: (res: Contacts[]) => {
+        this.contactData = res;
+      },
+    });
   }
 }
