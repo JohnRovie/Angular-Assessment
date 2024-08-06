@@ -1,25 +1,32 @@
-<h1 class="font-bold">Customer Information</h1>
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Contact Number</th>
-        </tr>
-    </thead>
-    <tbody>
-        @for (contacts of contactData; track contacts.id) {
-        <tr>
-            @if(contacts.id === cont ){
-            <td>{{contacts.name}}</td>
-            <td>{{contacts.email}}</td>
-            <td>{{contacts.contact}}
-            </td>
+<div class="p-12 ml-20 mr-20 flex flex-wrap flex-col item-center justify-center">
+    <div class="flex flex-row gap-10 pb-10">
+        <a routerLink="/" class="">
+            <span class="material-symbols-outlined">
+                arrow_back
+            </span>
+        </a>
+        <span class="font-bold text-xl">Customer Information</span>
+
+    </div>
+    <table class="border-2 border-solid">
+        <thead>
+            <tr class="text-center ml-5 font-normal text-sm text-gray-600">
+                <td class="ml-8">Name</td>
+                <td>Email Address</td>
+                <td>Contact Number</td>
+            </tr>
+        </thead>
+        <tbody>
+            @for (contacts of contactData; track contacts.id) {
+            <tr class="text-center font-bold">
+                @if(contacts.id === cont ){
+                <td class="ml-10">{{contacts.name}}</td>
+                <td>{{contacts.email}}</td>
+                <td>{{contacts.contact}}
+                </td>
+                }
+            </tr>
             }
-        </tr>
-        }
-    </tbody>
-</table>
-<a routerLink="/">
-    Back
-</a>
+        </tbody>
+    </table>
+</div>

@@ -54,15 +54,6 @@ export class ContactListService {
         })
       );
   }
-  getContactId(id: string) {
-    return this.httpClient
-      .get<Contacts[]>('http://localhost:3000/contacts-information/' + id)
-      .pipe(
-        map((res: any) => {
-          return res;
-        })
-      );
-  }
 
   removeContact(id: string) {
     return this.httpClient

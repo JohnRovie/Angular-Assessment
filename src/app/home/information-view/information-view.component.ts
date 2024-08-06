@@ -1,4 +1,4 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {
   ActivatedRoute,
   RouterLink,
@@ -7,7 +7,6 @@ import {
 } from '@angular/router';
 import { ContactListService } from '../../shared/contact-list.service';
 import { Contacts } from '../../shared/contact-list.model';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'app-information-view',

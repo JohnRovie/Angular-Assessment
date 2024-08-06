@@ -1,11 +1,12 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { ContactListService } from '../../shared/contact-list.service';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-modal',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink, RouterLinkActive, RouterOutlet],
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.css',
 })
@@ -42,6 +43,7 @@ export class ModalComponent {
         });
       this.close.emit();
       this.success.emit();
+      window.location.reload();
     }
     this.getData();
   }

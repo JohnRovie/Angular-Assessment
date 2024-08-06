@@ -6,12 +6,12 @@
                 Your list of contacts appear here. To add new contact. click on the Add
                 New Contact button
             </p>
-            <button class="p-2.5 text-xs font-bold text-white rounded-full bg-indigo-400" (click)="toggleModal()">
+            <button class="px-5 text-xs font-bold text-white rounded-full bg-purple-600" (click)="toggleModal()">
                 Add New Contact
             </button>
         </div>
     </div>
-    <div class="modal-container z-0">
+    <div class="modal-container">
         @if(modalView) {
         <app-modal (close)="closeModal()"></app-modal>
         }
