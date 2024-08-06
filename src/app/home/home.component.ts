@@ -5,7 +5,6 @@ import { ModalComponent } from './modal/modal.component';
 import { ContactListService } from '../shared/contact-list.service';
 import { Contacts } from '../shared/contact-list.model';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { AlertComponent } from './alert/alert.component';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +16,6 @@ import { AlertComponent } from './alert/alert.component';
     RouterLink,
     RouterLinkActive,
     RouterOutlet,
-    AlertComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',

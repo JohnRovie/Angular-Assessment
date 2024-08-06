@@ -52,8 +52,7 @@ export class CardViewComponent implements OnInit {
     this.formValue = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
-      mobile: ['', Validators.required],
-      city: ['', Validators.required],
+      contact: ['', Validators.required],
     });
     this.cont = this.route.snapshot.paramMap.get('id');
     this.contactList.getContactsId(this.cont).subscribe((res) => {
