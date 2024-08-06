@@ -38,12 +38,10 @@ export class CardViewComponent implements OnInit {
   isEdit: boolean = false;
   contactHolder: any;
   cont: any;
-  route: any;
 
   constructor(private contactList: ContactListService) {}
 
   ngOnInit(): void {
-    this.cont = this.route.snapshot.paramMap.get('id');
     this.getData();
   }
 
