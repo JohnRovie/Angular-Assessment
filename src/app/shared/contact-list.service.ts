@@ -36,6 +36,15 @@ export class ContactListService {
         })
       );
   }
+  getContactsId(id: any) {
+    return this.httpClient
+      .get<Contacts[]>('http://localhost:3000/contacts-information/' + id)
+      .pipe(
+        map((res: any) => {
+          return res;
+        })
+      );
+  }
   postContacts(data: any) {
     return this.httpClient
       .post<any>('http://localhost:3000/contacts-information', data)
@@ -45,7 +54,7 @@ export class ContactListService {
         })
       );
   }
-  updateContacts(data: any, id: any) {
+  updateContacts(data: Contacts, id: any) {
     return this.httpClient
       .put<any>('http://localhost:3000/contacts-information/' + id, data)
       .pipe(

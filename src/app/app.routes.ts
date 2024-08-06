@@ -7,6 +7,7 @@ import { TableViewComponent } from './home/table-view/table-view.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'home/:id', component: HomeComponent },
   { path: 'information-view/:id', component: InformationViewComponent },
   { path: 'card-view', component: CardViewComponent },
   { path: 'table-view', component: TableViewComponent },
